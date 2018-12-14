@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>北京图灵学院</title>
+    <script src="../static/javascript/vue.min.js"></script>
+    <script src="../static/javascript/axios.min.js"></script>
+    <script src="../static/javascript/lodash.min.js"></script>
+</head>
+<body>
+<div id="app">
+    {% verbatim myblock %}
+  {{ message }}
+    {% endverbatim myblock %}
+</div>
+<div id="app-2">
+  <span v-bind:title="message">
+    鼠标悬停几秒钟查看此处动态绑定的提示信息！
+  </span>
+</div>
+<div id="app-3">
+  <p v-if="seen">现在你看到我了</p>
+</div>
+
+<div id="app-4">
+  <ol>
+    <li v-for="todo in todos">
+        {% verbatim myblock %}
+      {{ todo.text }}
+      {% endverbatim myblock %}
+    </li>
+  </ol>
+</div>
+<div id="app-5">
+  <p> {% verbatim myblock %}
+      {{ message }}
+      {% endverbatim myblock %}
+  </p>
+  <button v-on:click="reverseMessage">逆转消息</button>
+</div>
+
+<div id="app-6">
+
+  <p>{% verbatim myblock %}
+      {{ message }}
+      {% endverbatim myblock %}
+  </p>
+  <input v-model="message">
+</div>
+<div id="watch-example">
+  <p>
+    Ask a yes/no question:
+    <input v-model="question">
+  </p>
+  <p>{% verbatim myblock %}
+      {{ answer }}
+      {% endverbatim myblock %}
+  </p>
+</div>
+
+<div id="selected-example">
+<select v-model="selected">
+  <option v-for="option in options" v-bind:value="option.value">
+   {% verbatim myblock %}
+    {{ option.text }}
+     {% endverbatim myblock %}
+  </option>
+</select>
+<span>Selected: {% verbatim myblock %}{{ selected }}{% endverbatim myblock %} </span>
+</div>
+<div id="todo">
+<input v-model="newTodoText" placeholder="New todo"/>
+    {% verbatim myblock %}
+    {{newTodoText}}
+     {% endverbatim myblock %}
+
+</div>
+
+<script src="../static/javascript/index.js"></script>
+</body>
+
+</html>
